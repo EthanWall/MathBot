@@ -14,7 +14,11 @@ imgTxt = imgTxt.replace("x", "*")
 imgTxt = imgTxt.replace("÷", "/")
 
 #Evaluate expression
-num = eval(imgTxt)
+try:
+    num = eval(imgTxt)
+except:
+    print("Evaluating expression failed, terminating!")
+    exit()
 
 print(imgTxt)
 print(num)
