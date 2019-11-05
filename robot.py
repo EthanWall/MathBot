@@ -1,6 +1,6 @@
 from PIL import Image
 import pytesseract
-import cv2
+from cv2 import cv2
 
 img = cv2.imread(r"images/test1.png")
 imgTxt = pytesseract.image_to_string(Image.fromarray(img))
