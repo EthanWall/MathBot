@@ -8,10 +8,10 @@ imgTxt = pytesseract.image_to_string(Image.fromarray(img))
 print(imgTxt)
 
 #Change string for math operation
-imgTxt = ''.join(imgTxt.split())
 imgTxt = imgTxt.lower()
 imgTxt = imgTxt.replace("x", "*")
 imgTxt = imgTxt.replace("÷", "/")
+imgTxt = ''.join(i for i in imgTxt if i.isdigit() or i == "*" or i == "/" or i == "+" or i == "-")
 
 #Evaluate expression
 try:
