@@ -18,3 +18,11 @@ class StepperMotor:
             sleep(self.delay)
             GPIO.output(self.step_pin, GPIO.LOW)
             sleep(self.delay)
+
+if __name__ == "__main__":
+    step_pin = int(input("Enter step_pin: "))
+    dir_pin = int(input("Enter dir_pin: "))
+    motor = StepperMotor(step_pin, dir_pin)
+    
+    motor.run(1, True)
+    motor.run(1, False)
