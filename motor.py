@@ -9,7 +9,7 @@ class StepperMotor:
 
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(step_pin, GPIO.OUT)
-        GPIO.output(dir_pin, GPIO.OUT)
+        GPIO.setup(dir_pin, GPIO.OUT)
         
     def run(self, steps, clockwise):
         GPIO.output(self.dir_pin, clockwise)
