@@ -23,11 +23,12 @@ class StepperMotor:
 if __name__ == "__main__":
     step_pin = int(input("Enter step_pin: "))
     dir_pin = int(input("Enter dir_pin: "))
+    steps = int(input("Enter amount of steps: "))
 
     try:
         motor = StepperMotor(step_pin, dir_pin)
     
-        motor.run(5, True)
-        motor.run(5, False)
+        motor.run(steps, True)
+        motor.run(steps, False)
     finally:
         GPIO.cleanup()
