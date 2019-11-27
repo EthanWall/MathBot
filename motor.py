@@ -7,6 +7,7 @@ class StepperMotor:
         self.dir_pin = dir_pin
         self.delay = .0208
 
+        GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(step_pin, GPIO.OUT)
         GPIO.setup(dir_pin, GPIO.OUT)
@@ -22,7 +23,11 @@ class StepperMotor:
 if __name__ == "__main__":
     step_pin = int(input("Enter step_pin: "))
     dir_pin = int(input("Enter dir_pin: "))
-    motor = StepperMotor(step_pin, dir_pin)
+
+    try:
+        motor = StepperMotor(step_pin, dir_pin)
     
-    motor.run(1, True)
-    motor.run(1, False)
+        motor.run(5, True)
+        motor.run(5, False)
+    finally:
+        GPIO.cleanup()
