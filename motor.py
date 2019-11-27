@@ -5,7 +5,7 @@ class StepperMotor:
     def __init__(self, step_pin, dir_pin):
         self.step_pin = step_pin
         self.dir_pin = dir_pin
-        self.delay = .0208
+        self.delay = .002 / 32
 
         GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
@@ -14,6 +14,7 @@ class StepperMotor:
         
     def run(self, steps, clockwise):
         GPIO.output(self.dir_pin, clockwise)
+        steps *= 32
         for i in range(steps):
             GPIO.output(self.step_pin, GPIO.HIGH)
             sleep(self.delay)
